@@ -1,11 +1,17 @@
 ﻿RingCentral Fax Custom Cover Page Demos
 =======================================
 
-The RingCentral API supports over 10 fax pages, however, it does not currently support custom cover pages which are available in the RingCentral for Desktop softphone application.
+The RingCentral API supports over 10 different fax cover page templates, however, it does not currently support custom cover pages which are available in the RingCentral for Desktop softphone application.
 
 These demos show how to create and use your own custom cover page.
 
 This is done by creating a cover page in your app and then using that as the first attachment in a fax, while also disabling RingCentral provided cover pages.
+
+Using the Handlebars template engine, these demos do the following:
+
+1. Render the [Handlebars cover page template](ruby/view_coverpage.handlebars)
+2. Add it to the Fax API call as an attachment, while disabling the standard cover page
+3. Resulting in [a fax with a custom cover page and body](ruby/asset_output.pdf) (redacted)
 
 ## RingCentral Fax API Configuration Parameters
 
