@@ -1,0 +1,30 @@
+{
+  "name": "ringcentral-demo-fax-cover-page",
+  "version": "1.0.0",
+  "description": "Custom Cover Page Demo in Node.js",
+  "main": "index.js",
+  "dependencies": {
+    "form-data": "^0.2.0",
+    "handlebars": "^4.0.5",
+    "ringcentral": "^2.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grokify/ringcentral-demos-fax-cover-page.git"
+  },
+  "keywords": [
+    "ringcentral",
+    "fax",
+    "cover",
+    "page"
+  ],
+  "author": "Tyler Long",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/grokify/ringcentral-demos-fax-cover-page/issues"
+  },
+  "homepage": "https://github.com/grokify/ringcentral-demos-fax-cover-page#readme"
+}
