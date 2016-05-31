@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-// Using RingCentralSdk 0.1.21
+// Using RingCentralSdk 1.0.0 branch
 using RingCentral;
-using RingCentral.SDK;
-using RingCentral.SDK.Helper;
-using RingCentral.SDK.Http;
+using RingCentral.Http;
 
 using DotEnv;
 using HandlebarsDotNet;
@@ -26,7 +24,7 @@ namespace csharp
 			var appName = "Custom Fax Cover Page Text";
 			var appVersion = "0.0.1";
 			var sdk = new SDK(appKey, appSecret, serverUrl, appName, appVersion);
-			Response response = sdk.GetPlatform().Authorize(username, extension, password, true);
+			sdk.Platform.Login(username, extension, password, true);
 			return sdk;
 		}
 
@@ -54,7 +52,7 @@ namespace csharp
 			return coverPage;
 		}
 
-		public static void SendFax(RingCentral.SDK.SDK sdk) {
+		public static void SendFax(SDK sdk) {
 			// Get Cover Page
 			var coverPage = GetCoverPage ();
 
@@ -71,8 +69,7 @@ namespace csharp
 
 			var request = new Request ("/restapi/v1.0/account/~/extension/~/fax", json, attachments);
 
-			var html = request.GetHttpContent ();
-			var response = sdk.GetPlatform().Post(request);
+			sdk.Platform.Post(request);
 		}
 
 		public static void Main (string[] args)
