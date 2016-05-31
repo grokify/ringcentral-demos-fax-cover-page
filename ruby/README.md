@@ -16,3 +16,24 @@ Sample files:
 1. [Cover Page HTML template](view_coverpage.handlebars)
 2. [Fax Attachment](asset_file.pdf)
 3. [Fax Demo Output](asset_output.pdf)
+
+## Installation
+
+```bash
+$ git clone https://github.com/grokify/ringcentral-demos-fax-cover-page
+$ cd ringcentral-demos-fax-cover-page
+$ bundle
+```
+
+## Configuration
+
+```bash
+$ cp .env.sample .env
+$ vi .env
+```
+
+## Usage
+
+```bash
+$ ruby fax_send.rb
+```
