@@ -20,3 +20,8 @@ To do this:
 1. Create your own cover page and then add it as as the first MIME part in the request. RingCentral's fax API can support many file types including PDF, DOCX, DOC, HTML, plaintext, etc. For this demo we will use HTML since it provides formatting and does not require complex rendering like PDF. The Handlebars template engine is used because it is supported by many languages and supports some more complex constructs than Mustache.
 2. Wrap the cover page HTML in an appropriate part for the language / SDK you are using, e.g. a `RingCentral.SDK.Helper.Attachment` object for C# and a `MIME::Text` object for Ruby.
 3. Add the wrapped mime part to the list of attachments in the fax request.
+
+## Demos
+
+* [C#](csharp)
+* [Ruby](ruby)
