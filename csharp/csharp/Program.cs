@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-// Using RingCentralSdk 1.0.0 branch
+// Using RingCentralSDK 1.0.0
 using RingCentral;
 using RingCentral.Http;
 
@@ -66,7 +66,7 @@ namespace csharp
 			var attachments = new List<Attachment> {coverPage, attachment};
 
 			var to = Environment.GetEnvironmentVariable ("RC_DEMO_FAX_TO");
-			var json = "{\"to\":[{\"phoneNumber\":\"" + to + "\"}],\"faxResolution\":\"High\"}";
+			var json = "{\"to\":[{\"phoneNumber\":\"" + to + "\"}],\"coverIndex\":\"0\"}";
 
 			Request request = new Request ("/restapi/v1.0/account/~/extension/~/fax", json, attachments);
 
@@ -80,7 +80,7 @@ namespace csharp
 			var sdk = NewSDK ();
 			ApiResponse response =  SendFax (sdk);
 			Console.WriteLine (response.Body);
-			Console.WriteLine ("DONE!");
+			Console.WriteLine ("DONE");
 		}
 	}
 }
