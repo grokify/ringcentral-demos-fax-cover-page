@@ -17,6 +17,8 @@ Sample files:
 2. [Fax Attachment](asset_file.pdf)
 3. [Fax Demo Output](asset_output.pdf)
 
+
+
 ## Installation
 
 ```bash
@@ -25,12 +27,14 @@ $ cd ringcentral-demos-fax-cover-page
 $ bundle
 ```
 
+
 ## Configuration
 
 ```bash
 $ cp .env.sample .env
 $ vi .env
 ```
+
 
 ## Usage
 

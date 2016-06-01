@@ -17,15 +17,18 @@ Sample files:
 2. [Fax Attachment](asset_file.pdf)
 3. [Fax Demo Output](asset_output.pdf)
 
+
 ## Installation
 
 ```bash
 $ git clone https://github.com/grokify/ringcentral-demos-fax-cover-page
 ```
 
+
 ## Configuration
 
 In Visual Studio or Xamarin Studio, open `ringcentral-demos-fax-cover-page/csharp/csharp.sln` and build the solution.
+
 
 ## Usage
 

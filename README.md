@@ -10,7 +10,7 @@ This is done by creating a cover page in your app and then using that as the fir
 These demos have the following steps, using the Handlebars template engine:
 
 1. Render the [Handlebars cover page template](ruby/view_coverpage.handlebars)
-2. Add it to the Fax API call as an attachment, while disabling the standard cover page
+2. Add it as the first attachment ahead of [others](ruby/asset_file.pdf), while disabling the standard cover page
 3. Resulting in [a fax with a custom cover page and body](ruby/asset_output.pdf) (redacted)
 
 ## RingCentral Fax API Configuration Parameters
@@ -30,4 +30,5 @@ To do this:
 ## Demos
 
 * [C#](csharp)
+* [Node.js](nodejs)
 * [Ruby](ruby)
