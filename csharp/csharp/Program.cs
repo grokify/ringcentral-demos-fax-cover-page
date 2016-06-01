@@ -14,6 +14,7 @@ namespace csharp
 {
 	class MainClass
 	{
+		// Get an authorized SDK instance
 		public static SDK NewSDK() {
 			var appKey = Environment.GetEnvironmentVariable("RC_APP_KEY");
 			var appSecret = Environment.GetEnvironmentVariable("RC_APP_SECRET");
@@ -28,6 +29,7 @@ namespace csharp
 			return sdk;
 		}
 
+		// Get the coverpage as a RingCentral.Http.Attachment object
 		public static Attachment GetCoverPage() {
 			var templatePath = Environment.GetEnvironmentVariable ("RC_DEMO_FAX_COVERPAGE_TEMPLATE");
 			var source = File.ReadAllText (templatePath);
@@ -52,31 +54,32 @@ namespace csharp
 			return coverPage;
 		}
 
-		public static void SendFax(SDK sdk) {
+		// Send the fax and return the ApiResponse object
+		public static ApiResponse SendFax(SDK sdk) {
 			// Get Cover Page
 			var coverPage = GetCoverPage ();
 
 			// Get Fax Body
 			var attachmentBytes = File.ReadAllBytes (Environment.GetEnvironmentVariable ("RC_DEMO_FAX_FILEPATH"));
-			var attachment = new Attachment ("test_file.pdf", "application/pdf", attachmentBytes);
+			var attachment = new Attachment ("example.pdf", "application/pdf", attachmentBytes);
 
 			var attachments = new List<Attachment> {coverPage, attachment};
 
 			var to = Environment.GetEnvironmentVariable ("RC_DEMO_FAX_TO");
 			var json = "{\"to\":[{\"phoneNumber\":\"" + to + "\"}],\"faxResolution\":\"High\"}";
-			json = "{\"to\":[{\"phoneNumber\":\"" + to + "\"}]}";
-			Console.WriteLine (json);
 
-			var request = new Request ("/restapi/v1.0/account/~/extension/~/fax", json, attachments);
+			Request request = new Request ("/restapi/v1.0/account/~/extension/~/fax", json, attachments);
 
-			sdk.Platform.Post(request);
+			ApiResponse response = sdk.Platform.Post(request);
+			return response;
 		}
 
 		public static void Main (string[] args)
 		{
 			DotEnv.DotEnvConfig.Install (DotEnv.EnvFileLoadSettings.ThrowOnInvalidFile);
 			var sdk = NewSDK ();
-			SendFax (sdk);
+			ApiResponse response =  SendFax (sdk);
+			Console.WriteLine (response.Body);
 			Console.WriteLine ("DONE!");
 		}
 	}
