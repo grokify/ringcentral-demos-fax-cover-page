@@ -50,12 +50,13 @@ formData.append('attachment', fs.createReadStream(config.RC_DEMO_FAX_FILEPATH),
 rcsdk.platform()
   .login({
       username: config.RC_USER_USERNAME,
-      extension: '',
+      extension: config.RC_USER_EXTENSION,
       password: config.RC_USER_PASSWORD
   })
   .then(function(response) {
     rcsdk.platform().post('/account/~/extension/~/fax', formData)
-      .then(function(){
+      .then(function(apiResponse){
+        console.log(apiResponse.json());
         console.log('DONE');
         fs.unlinkSync('cover.html');
       }).catch(errorHandler);
