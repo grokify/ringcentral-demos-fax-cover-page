@@ -17,11 +17,11 @@ These demos have the following steps, using the Handlebars template engine:
 
 When using these demos, the fax API `coverIndex` parameter should be set to `0` so that no cover page is added.
 
-### Logo example
+### Images
 
-In the Ruby example, there is an alternate handlebars template that supports embedding logos: `view_coverpage_logo.handlebars`. To use this demo, just reference it in the `.env` file.
+Some file types have embedded images such as DOC, DOCX and PDF. Embedding images in these filetypes should work fine.
 
-Of note, the RingCentral HTML rendering image can render images specified as `src` attributes in the `img` tag but not as [CSS Data URIs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs).
+For HTML, use a `img` tag with a `src` attribute. [CSS Data URIs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs) are not currently supported yet. The examples have an alternate handlebars template that supports embedding an image logo: `view_coverpage_with_image.handlebars`. To use this demo, just reference it in the `.env` file.
 
 ## Adding Your Cover Page
 
